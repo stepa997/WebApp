@@ -1,0 +1,73 @@
+<div class="image">
+    <button class="btn1" (click)='profil()'> Profile </button>
+    <button class="btn1" (click)='addproduct()'> Add product </button>
+    <div>
+        <img src="assets/img/logout-icon.png" class="logout" (click)='logout()'>
+        <form *ngIf="show && !pro" class="forma">
+            <table>
+              <tr>
+                <td>Username: </td>
+                <td><input type="text" name="username" placeholder="Username" [(ngModel)]="user.username"/></td>
+              </tr>
+              <tr>
+                <td>Ime: </td>
+                <td><input type="text" name="fname" placeholder="Ime"  [(ngModel)]="user.fname"/></td>
+              </tr>
+              <tr>
+                <td>Prezime: </td>
+                <td><input type="text" name="lname" placeholder="Prezime" [(ngModel)]="user.lname"/></td>
+              </tr>
+              <tr>
+                <td>Password: </td>
+                <td><input type="password" name="password" placeholder="Password"  [(ngModel)]="user.password"/></td>
+              </tr>
+              <tr>
+                <td>Adresa: </td>
+                <td><input type="text" name="adresa" placeholder="Adresa"  [(ngModel)]="user.adresa"/></td>
+              </tr>
+              <tr>
+                <td>Broj: </td>
+                <td><input type="text" name="telefon" placeholder="Telefon"  [(ngModel)]="user.telefon"/></td>
+              </tr>
+              <tr>
+                <td colspan="2"><input  type="submit" (click)='potvrdi()'/> </td>
+              </tr>
+            </table>
+          </form> 
+    </div>
+    <diV class="forma" style="height: auto;" *ngIf="!show && !pro">
+    <div *ngFor="let stavka of books" >
+      <img *ngIf="stavka.name === 'Lipov med'" src="assets/img/Lipov-med.png" height="100dp">
+      <img *ngIf="stavka.name === 'Med'" src="assets/img/propoli.png" height="100dp">
+      <img *ngIf="stavka.name === 'Kraljevski med'" src="assets/img/med_veliki_sum.png" height="100dp">
+        <p style="font-style: italic;">{{stavka.name}}</p>
+        Cena: <p>{{stavka.cena}}</p>
+    <button style="background-color: rgb(127, 255, 133);" (click)='brisi(stavka.name)'> Potvrdi </button>
+    <button style="background-color: rgb(224, 24, 24);" (click)='brisi(stavka.name)'> Odbaci </button>  
+    </div>
+    </diV>
+    <diV class="forma" style="height: auto;" *ngIf="pro">
+        <table>
+            <tr>
+              <td>Naziv: </td>
+              <td><input type="text" name="naziv" placeholder="Naziv" [(ngModel)]="naziv"/></td>
+            </tr>
+            <tr>
+              <td>Cena: </td>
+              <td><input type="number" name="cena" placeholder="Cena"  [(ngModel)]="cena"/></td>
+            </tr>
+            <tr> <td>Slika: </td>
+                <td><input name="image-upload" type="file"  /> </td>
+            </tr>
+            <tr>
+                <td>
+                <button style="background-color: rgb(127, 255, 133);" (click)='add()'> Potvrdi </button>
+                </td>
+                <td>
+                  <button style="background-color: rgb(199, 9, 9);" (click)='odustani()'> Odustani </button>
+                </td>
+            </tr>
+          </table>
+    </diV>
+    
+</div>

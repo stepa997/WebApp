@@ -1,0 +1,60 @@
+<div class="image">
+    <button class="btn1" (click)='profil()'> Profile </button>
+    <button class="btn1" (click)='addproduct()'> Korpa </button>
+    <div>
+        <img src="assets/img/logout-icon.png" class="logout" (click)='logout()'>
+        <form *ngIf="show && !pro" class="forma">
+            <table>
+              <tr>
+                <td>Username: </td>
+                <td><input type="text" name="username" placeholder="Username" [(ngModel)]="user.username"/></td>
+              </tr>
+              <tr>
+                <td>Ime: </td>
+                <td><input type="text" name="fname" placeholder="Ime"  [(ngModel)]="user.fname"/></td>
+              </tr>
+              <tr>
+                <td>Prezime: </td>
+                <td><input type="text" name="lname" placeholder="Prezime" [(ngModel)]="user.lname"/></td>
+              </tr>
+              <tr>
+                <td>Password: </td>
+                <td><input type="password" name="password" placeholder="Password"  [(ngModel)]="user.password"/></td>
+              </tr>
+              <tr>
+                <td>Adresa: </td>
+                <td><input type="text" name="adresa" placeholder="Adresa"  [(ngModel)]="user.adresa"/></td>
+              </tr>
+              <tr>
+                <td>Broj: </td>
+                <td><input type="text" name="telefon" placeholder="Telefon"  [(ngModel)]="user.telefon"/></td>
+              </tr>
+              <tr>
+                <td colspan="2"><input  type="submit" (click)='potvrdi()'/> </td>
+              </tr>
+            </table>
+          </form> 
+    </div>
+    <diV class="forma" style="height: auto;" *ngIf="!show && !pro">
+    <div *ngFor="let stavka of books" >
+      <img *ngIf="stavka.name === 'Lipov med'" src="assets/img/Lipov-med.png" height="100dp">
+      <img *ngIf="stavka.name === 'Med'" src="assets/img/propoli.png" height="100dp">
+      <img *ngIf="stavka.name === 'Kraljevski med'" src="assets/img/med_veliki_sum.png" height="100dp">
+        <p style="font-style: italic;">{{stavka.name}}</p>
+        Cena: <p>{{stavka.cena}}</p>
+    <button style="background-color: rgb(127, 255, 133);" (click)='brisi(stavka.name, stavka.cena)'> Potvrdi </button>
+    </div>
+    </diV>
+    <diV class="forma" style="height: auto;" *ngIf="pro">
+        <div *ngFor="let stavka of moja" >
+            <p style="font-style: italic;">{{stavka.name}}</p>
+            Cena: <p>{{stavka.cena}}</p>
+    </div>
+    <button style="background-color: rgb(127, 255, 133);" (click)='add()'> Potvrdi narudzbinu</button>
+    <button style="background-color: rgb(197, 12, 12);" (click)='odbij()'> Prekini narudzbinu </button>
+    <div>
+      Ukupna porudzbina je: <p>{{ukupna_cena}}</p>
+    </div>
+    </diV>
+    
+</div>
