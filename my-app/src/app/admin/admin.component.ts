@@ -15,12 +15,16 @@ export class AdminComponent implements OnInit {
   pro: boolean;
   naziv: string;
   cena: number;
+  bag:boolean;
+  aron:boolean;
   constructor(private router: Router) { 
     this.books = JSON.parse(localStorage.getItem('porudzbina')!);
     this.user = new User();
     this.show = false;
     this.pro = false;
     this.naziv = "";
+    this.bag = false;
+    this.aron = false;
     this.cena = 0;
   }
 
@@ -95,5 +99,15 @@ export class AdminComponent implements OnInit {
 
   odustani():void{
     this.pro = false;
+  }
+
+  bagrem():void{
+    this.bag = true;
+    this.aron = false;
+  }
+
+  aronija():void{
+    this.bag = false;
+    this.aron = true;
   }
 }

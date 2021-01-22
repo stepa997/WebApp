@@ -38,11 +38,13 @@
     <diV class="forma" style="height: auto;" *ngIf="!show && !pro">
     <div *ngFor="let stavka of books" >
       <img *ngIf="stavka.name === 'Lipov med'" src="assets/img/Lipov-med.png" height="100dp">
-      <img *ngIf="stavka.name === 'Med'" src="assets/img/propoli.png" height="100dp">
+      <img *ngIf="stavka.name === 'Propolis'" src="assets/img/propoli.png" height="100dp">
       <img *ngIf="stavka.name === 'Kraljevski med'" src="assets/img/med_veliki_sum.png" height="100dp">
+      <img *ngIf="stavka.name === 'Med od aronije'" src="assets/img/Med_aronija.png" height="100dp">
+      <img *ngIf="stavka.name === 'Bagremov med'" src="assets/img/Bagremov_med.png" height="100dp">
         <p style="font-style: italic;">{{stavka.name}}</p>
         Cena: <p>{{stavka.cena}}</p>
-    <button style="background-color: rgb(127, 255, 133);" (click)='brisi(stavka.name, stavka.cena)'> Potvrdi </button>
+    <button style="background-color: rgb(127, 255, 133);" (click)='brisi(stavka.name, stavka.cena)'> Dodaj u korpu </button>
     </div>
     </diV>
     <diV class="forma" style="height: auto;" *ngIf="pro">

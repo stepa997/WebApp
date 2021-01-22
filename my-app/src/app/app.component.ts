@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
   products=[
     {name:"Lipov med", cena:750},
     {name:"Kraljevski med",cena:600},
-    {name:"Med",cena:500},
+    {name:"Propolis",cena:500},
   ]
   mojaporudzbina=[
   ]
